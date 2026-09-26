@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A &amp; R Gebäudereinigung</title>
+<meta name="description" content="A &amp; R Gebäudereinigung in Reutlingen: Gebäude-, Treppenhaus-, Büro-, Fenster- und Haushaltsreinigung sowie Entrümpelung im Umkreis von 50 km.">
+<style>
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/roboto-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/roboto-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/roboto-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/roboto-latin-900-normal.woff2) format('woff2')}
+:root{
+  --ink:#0c1a3a;        /* Navy aus dem Logo, ersetzt das Schwarz der Referenz */
+  --navy:#0e2250;       /* Karten, Formular, Footer */
+  --blue:#1f6fe5;       /* Akzent aus dem Logo */
+  --blue-soft:#e8f0fd;
+  --panel:#f2f3f5;      /* Hellgraue Flächen wie in der Referenz */
+  --line:#e1e4ea;
+  --text:#1c2433;
+  --muted:#5a6475;
+  --white:#ffffff;
+  --wa:#15803d;
+  --wa-dark:#166534;
+  --font:'Roboto',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--white);color:var(--text);font:400 16px/1.65 var(--font);padding-inline:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.wrap{max-width:1180px;margin-inline:auto}
+h1,h2,h3{color:var(--ink);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:4px}
+.ico{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:-.125em}
+.label{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+section,[id]{scroll-margin-top:96px}
+.card{scroll-margin-top:110px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.4rem;border-radius:10px;font:600 1rem var(--font);text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:var(--white);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--blue);border-color:var(--blue)}
+.btn.light{background:var(--white);color:var(--ink);border-color:var(--white)}
+.btn.light:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+.btn.outline{background:transparent;color:var(--ink)}
+.btn.outline:hover{background:var(--ink);color:var(--white)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.wa:hover{background:var(--wa-dark);border-color:var(--wa-dark)}
+
+/* Topbar + Header */
+.topbar{background:var(--panel);margin-inline:-16px;padding-inline:16px;font-size:.92rem}
+.topbar .wrap{display:flex;justify-content:flex-end;gap:26px;padding-block:8px;flex-wrap:wrap}
+.topbar a,.topbar span{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
+.topbar a:hover{color:var(--blue)}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--white);margin-inline:-16px;padding-inline:16px;border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:24px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand img{width:52px;height:52px;border-radius:50%;display:block}
+.brand b{display:block;font-size:1.25rem;font-weight:900;color:var(--ink);line-height:1.1}
+.brand small{display:block;font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+nav.main{display:flex;gap:24px;font-weight:500}
+nav.main a{text-decoration:none;color:var(--text)}
+nav.main a:hover{color:var(--blue)}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
+.burger svg{width:28px;height:28px}
+
+/* Hero */
+.hero{background:var(--panel);border-radius:16px;padding:36px;margin-top:24px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:36px;align-items:start}
+.hero > *{min-width:0}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-weight:500;font-size:.92rem;color:var(--ink);text-decoration:none}
+.dot{width:8px;height:8px;border-radius:50%;background:#16a34a}
+.hero h1{margin-top:20px}
+.lead{margin-top:14px;font-size:1.08rem;color:var(--muted);max-width:52ch}
+.hero .label{display:block;margin:26px 0 12px}
+.svc-pills .pill{border-radius:10px;padding:9px 14px}
+.svc-pills .pill .ico{color:var(--ink);font-size:1.1rem}
+.svc-pills .pill:hover{border-color:var(--blue);color:var(--blue)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.fact{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px}
+.fact small{display:block;font-size:.82rem;color:var(--muted);font-weight:500}
+.fact b{display:block;font-size:1.3rem;color:var(--ink);line-height:1.3;margin-top:2px}
+.fact span{font-size:.85rem;color:var(--muted)}
+
+/* Formular */
+.formcard{background:var(--navy);color:#dfe6f3;border-radius:16px;padding:28px;display:grid;gap:14px}
+.formcard h2{color:var(--white);font-size:1.55rem}
+.formcard .sub{color:#aebbd4;margin-top:-6px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.full{grid-column:1/-1}
+.fgrid label{display:grid;gap:5px;font-size:.88rem;font-weight:500;color:#c9d3e6}
+.fgrid input,.fgrid select,.fgrid textarea{font:400 1rem var(--font);color:var(--white);background:#16295a;border:1px solid #2a3f74;border-radius:8px;padding:.8rem .9rem;width:100%}
+.fgrid select option{color:#111}
+.fgrid textarea{min-height:96px;resize:vertical}
+.fgrid input::placeholder,.fgrid textarea::placeholder{color:#8795b3}
+.fgrid input:focus,.fgrid select:focus,.fgrid textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,111,229,.35)}
+.send{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.send .btn{white-space:nowrap;padding-inline:.8rem}
+.hint{font-size:.82rem;color:#93a2c2}
+#msg{font-weight:600;color:#ffd166;min-height:1.2em}
+
+/* Allgemeine Sektionen */
+.sec{padding-block:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:32px;max-width:70ch}
+.sec-head p{color:var(--muted)}
+.center{text-align:center;margin-inline:auto}
+
+/* Einblicke Slider */
+.slider{position:relative}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.track figure{margin:0;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;background:var(--panel)}
+.track img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.track figcaption{position:absolute;left:12px;bottom:12px;background:rgba(12,26,58,.85);color:#fff;font-size:.85rem;font-weight:500;padding:4px 12px;border-radius:999px}
+.arrows{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+.arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.arrow:hover{border-color:var(--ink)}
+.arrow svg{width:20px;height:20px}
+
+/* Leistungskarten */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card,.tile span,.why div,.fact{min-width:0;overflow-wrap:anywhere}
+.card{background:var(--navy);border-radius:14px;padding:14px 14px 24px;color:#d5deee;display:grid;gap:12px;align-content:start;scroll-margin-top:110px}
+.card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.card h3{color:var(--white);font-size:1.3rem;padding-inline:8px;margin-top:6px}
+.card p{padding-inline:8px;font-size:.97rem}
+.more{margin-top:22px;color:var(--muted)}
+
+/* Ansprechpartner */
+.person{background:var(--panel);border-radius:16px;padding:30px;display:grid;gap:24px}
+.p-top{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.avatar{width:110px;height:110px;border-radius:14px;border:2px dashed #9aa6bb;padding:5px;flex:none}
+.avatar img{width:100%;height:100%;border-radius:10px;object-fit:cover;display:block}
+.p-name small{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.p-name b{display:block;font-size:1.7rem;color:var(--ink);font-weight:700;line-height:1.2}
+.p-name span{color:var(--muted)}
+.p-top .btn{margin-left:auto}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid #d7dbe3;padding-top:24px}
+.tile{background:var(--white);border-radius:12px;padding:16px;display:flex;align-items:center;gap:16px;text-decoration:none}
+a.tile:hover{box-shadow:0 0 0 2px var(--blue)}
+.tile i{width:50px;height:50px;border-radius:50%;background:var(--panel);display:grid;place-items:center;color:var(--ink);font-size:1.3rem;flex:none}
+.tile small{display:block;color:var(--muted);font-size:.85rem}
+.tile b{display:block;color:var(--ink);font-size:1.02rem;word-break:break-word}
+
+/* Warum wir */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why div{border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:8px;align-content:start}
+.why .ico{font-size:1.6rem;color:var(--blue)}
+.why h3{font-size:1.08rem}
+.why p{color:var(--muted);font-size:.96rem}
+
+/* Einsatzgebiet */
+.area{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.area p{color:var(--muted);margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--panel);border-radius:999px;padding:6px 14px;font-size:.93rem;color:var(--ink)}
+.area h3{font-size:1rem;margin:0 0 10px}
+.area .grp + .grp{margin-top:22px}
+
+/* Ablauf */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;counter-reset:st}
+.steps li{counter-increment:st;display:grid;gap:8px;align-content:start;position:relative}
+.steps li::before{content:counter(st);width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem;position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;top:23px;left:46px;right:-18px;height:2px;background:var(--line)}
+.steps h3{font-size:1.05rem;margin-top:6px}
+.steps p{color:var(--muted);font-size:.95rem}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:900px}
+.faq details{border:1px solid var(--line);border-radius:10px;background:var(--white)}
+.faq summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:500;font-size:1.03rem;color:var(--ink);display:flex;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+";font-size:1.4rem;line-height:1;width:18px;flex:none;color:var(--ink);font-weight:500}
+.faq details[open] summary::before{content:"–"}
+.faq details[open]{border-color:#c9d0dc}
+.faq details p{padding:0 18px 18px 50px;color:var(--muted)}
+
+/* Kontakt-Band */
+.cta-band{background:var(--navy);border-radius:16px;padding:40px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;color:#d5deee}
+.cta-band h2{color:#fff}
+.cta-band p{margin-top:12px}
+.cta-list{display:grid;gap:2px}
+.cta-list a,.cta-list span{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none;font-weight:500;min-height:44px}
+.cta-list a:hover{text-decoration:underline}
+.cta-list .ico{color:#8fb6ff;font-size:1.15rem}
+.cta-band .btn{margin-top:22px}
+
+/* Footer */
+footer.site{background:var(--ink);color:#b9c4d8;margin-inline:-16px;padding:56px 16px 28px;margin-top:72px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.fcols .fh{color:#fff;margin:0 0 12px;font-size:1rem}
+.fcols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.fcols a{text-decoration:none}
+.fcols a:hover{color:#fff;text-decoration:underline}
+.fbrand{display:flex;gap:12px;align-items:center;color:#fff;font-weight:700;font-size:1.1rem}
+.fbrand img{width:48px;height:48px;border-radius:50%}
+.fcols p{margin-top:12px;font-size:.95rem}
+.fbottom{border-top:1px solid #243457;margin-top:36px;padding-top:20px;font-size:.88rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* WhatsApp-Button (Desktop) und Kontaktleiste (Handy) */
+.wa-float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:50;transition:transform .15s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+.mbar{display:none}
+
+/* Rechtstexte */
+.legal{display:none;max-width:72ch;padding-block:48px}
+.legal:target{display:block}
+.legal h2{margin-bottom:20px}
+.legal h3{font-size:1.05rem;margin:22px 0 6px}
+.legal p{color:var(--muted)}
+.back{display:inline-block;margin-bottom:18px;font-weight:600;color:var(--blue);text-decoration:none}
+main:has(.legal:target) > :not(.legal){display:none}
+
+/* Tablet */
+@media (max-width:1024px){
+  nav.main{gap:18px;font-size:.95rem}
+  .hero{grid-template-columns:minmax(0,1fr);padding:28px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr 1fr}
+  .steps li::after{display:none}
+  .fcols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--white);flex-direction:column;gap:0;padding:4px 16px 12px;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(12,26,58,.08)}
+  header.site.open nav.main{display:flex}
+  nav.main a{padding:13px 0;border-top:1px solid var(--line);font-size:1.05rem}
+  .burger{display:block}
+  .hcta{display:none}
+  .area{grid-template-columns:1fr;gap:28px}
+  .cta-band{grid-template-columns:1fr;padding:30px}
+  .track{grid-auto-columns:calc((100% - 16px)/2)}
+}
+/* Handy */
+@media (max-width:640px){
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+  .topbar .wrap{justify-content:center;gap:18px;font-size:.85rem}
+  .topbar .t-mail{display:none}
+  .brand img{width:44px;height:44px}
+  .brand b{font-size:1.1rem}
+  .hero{padding:20px;margin-top:16px;border-radius:14px;gap:24px}
+  h1{font-size:1.75rem}
+  .hero h1{margin-top:16px}
+  .lead{font-size:1rem}
+  .hero .label{margin:20px 0 10px}
+  .svc-pills{gap:8px}
+  .svc-pills .pill{font-size:.86rem;padding:7px 11px;gap:6px;white-space:nowrap;min-height:44px}
+  .facts{display:none}
+  .card img{aspect-ratio:16/9}
+  .why div{grid-template-columns:28px 1fr;column-gap:12px;padding:16px}
+  .why .ico{grid-row:span 2;font-size:1.4rem;margin-top:2px}
+  .facts{grid-template-columns:1fr;gap:10px}
+  .fact{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:12px 14px}
+  .fact b{font-size:1.05rem}
+  .fact span{display:none}
+  .formcard{padding:20px}
+  .fgrid{grid-template-columns:1fr}
+  .send{grid-template-columns:1fr}
+  .sec{padding-block:52px}
+  .track{grid-auto-columns:82%}
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .person{padding:20px}
+  .p-top .btn{margin-left:0;width:100%}
+  .tiles{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps li{grid-template-columns:46px 1fr;column-gap:14px}
+  .steps li::before{grid-row:span 2}
+  .steps h3{margin-top:10px}
+  .faq details p{padding-left:18px}
+  .cta-band{padding:24px}
+  .fcols{grid-template-columns:1fr}
+  footer.site{margin-top:52px}
+  .wa-float{display:none}
+  .mbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+  .mbar a{display:grid;justify-items:center;gap:3px;padding:9px 4px 8px;color:#fff;text-decoration:none;font-size:.75rem;font-weight:500}
+  .mbar a svg{width:22px;height:22px;fill:currentColor}
+  .mbar a.wa-i svg{fill:#4ade80}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+<link rel="canonical" href="https://ar-gebaeudereinigung-reutlingen.de/">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#0c1a3a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="A &amp; R Gebäudereinigung Reutlingen">
+<meta property="og:description" content="Gebäude-, Treppenhaus-, Büro-, Fenster- und Haushaltsreinigung sowie Entrümpelung in Reutlingen und im Umkreis von 50 km.">
+<meta property="og:url" content="https://ar-gebaeudereinigung-reutlingen.de/">
+<meta property="og:image" content="https://ar-gebaeudereinigung-reutlingen.de/img/og-logo.jpg">
+<link rel="preload" href="fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/roboto-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "A & R Gebäudereinigung",
+ "url": "https://ar-gebaeudereinigung-reutlingen.de/",
+ "logo": "https://ar-gebaeudereinigung-reutlingen.de/img/og-logo.jpg",
+ "image": "https://ar-gebaeudereinigung-reutlingen.de/img/og-logo.jpg",
+ "telephone": "+49 1573 0719711",
+ "email": "info@ar-gebaeudereinigung-reutlingen.de",
+ "founder": {
+  "@type": "Person",
+  "name": "Yamen Shihab"
+ },
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Metzgerstraße 21",
+  "postalCode": "72764",
+  "addressLocality": "Reutlingen",
+  "addressCountry": "DE"
+ },
+ "areaServed": {
+  "@type": "GeoCircle",
+  "geoMidpoint": {
+   "@type": "GeoCoordinates",
+   "latitude": 48.4914,
+   "longitude": 9.2043
+  },
+  "geoRadius": "50000"
+ },
+ "description": "Gebäudereinigung, Treppenhausreinigung, Büroreinigung, Fensterreinigung, Haushaltsreinigung und Entrümpelung in Reutlingen."
+}
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.6 2.1-.9 1.5L11 13V7h2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.4 14.2-4.3-4.3 1.4-1.4 2.9 2.9 6-6 1.4 1.4z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.2 5.3 19.9 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.1l-4.3-4.3z"/></symbol>
+  <symbol id="i-form" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM7 7h10v2H7zm0 4h10v2H7zm0 4h6v2H7z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 7.5 12 3 3 7.5v9L12 21l9-4.5zM12 5.2l5.8 2.9L12 11 6.2 8.1zM5 9.7l6 3v5.9l-6-3zm8 8.9v-5.9l6-3v5.9z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14zM7 12h5v5H7z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
+</svg>
+
+<aside class="topbar" aria-label="Kontakt">
+  <div class="wrap">
+    <a class="t-mail" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>info@ar-gebaeudereinigung-reutlingen.de</a>
+    <a href="tel:+4915730719711"><svg class="ico"><use href="#i-phone"/></svg>01573&nbsp;0719711</a>
+    <span><svg class="ico"><use href="#i-clock"/></svg>8–16 Uhr</span>
+  </div>
+</aside>
+
+<header class="site" id="hdr">
+  <div class="wrap hbar">
+    <a class="brand" href="#top" aria-label="A &amp; R Gebäudereinigung, zur Startseite">
+      <img src="img/logo2.jpg" alt="" width="52" height="52">
+      <span><b>A &amp; R</b><small>Gebäudereinigung</small></span>
+    </a>
+    <nav class="main" id="nav" aria-label="Hauptmenü">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#einblicke">Einblicke</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#einsatzgebiet">Einsatzgebiet</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn hcta" href="#anfrage">Angebot anfragen</a>
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <div class="pills">
+        <span class="pill"><i class="dot"></i>Erreichbar 8–16 Uhr</span>
+        <span class="pill">Angebot nach Rücksprache</span>
+      </div>
+      <h1 id="h1">A &amp; R Gebäudereinigung Reutlingen</h1>
+      <p class="lead">Reinigung für Gewerbe, Hausverwaltungen und Privathaushalte. Dazu Entrümpelung von Wohnungen, Kellern und Büros, alles aus einer Hand.</p>
+      <span class="label">Unsere Leistungen</span>
+      <div class="pills svc-pills" lang="de">
+        <a class="pill" href="#l-gebaeude"><svg class="ico"><use href="#i-check"/></svg>Gebäudereinigung</a>
+        <a class="pill" href="#l-treppenhaus"><svg class="ico"><use href="#i-check"/></svg>Treppenhausreinigung</a>
+        <a class="pill" href="#l-buero"><svg class="ico"><use href="#i-check"/></svg>Büroreinigung</a>
+        <a class="pill" href="#l-fenster"><svg class="ico"><use href="#i-check"/></svg>Fensterreinigung</a>
+        <a class="pill" href="#l-haushalt"><svg class="ico"><use href="#i-check"/></svg>Haushaltsreinigung</a>
+        <a class="pill" href="#l-entruempelung"><svg class="ico"><use href="#i-check"/></svg>Entrümpelung</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><small>Einsatzgebiet</small><b>50 km</b><span>rund um Reutlingen</span></div>
+        <div class="fact"><small>Erreichbar</small><b>8–16 Uhr</b><span>Telefon und WhatsApp</span></div>
+        <div class="fact"><small>Leistungen</small><b>6 Bereiche</b><span>Reinigung und Entrümpelung</span></div>
+      </div>
+    </div>
+
+    <form class="formcard" id="anfrage" novalidate aria-labelledby="f-h">
+      <h2 id="f-h">Angebot und Termin anfragen</h2>
+      <p class="sub">Unverbindlich. Wir melden uns mit einem Angebot bei Ihnen.</p>
+      <div class="fgrid">
+        <label>Name*<input id="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required></label>
+        <label>Telefon<input id="tel" type="tel" autocomplete="tel" placeholder="Für Rückfragen"></label>
+        <label>Ort oder PLZ<input id="ort" type="text" autocomplete="postal-code" placeholder="z. B. 72764 Reutlingen"></label>
+        <label>Leistung
+          <select id="art">
+            <option>Gebäudereinigung</option><option>Treppenhausreinigung</option><option>Büroreinigung</option><option>Fensterreinigung</option><option>Haushaltsreinigung</option><option>Entrümpelung</option><option>Sonstiges</option>
+          </select>
+        </label>
+        <label class="full">Ihre Nachricht<textarea id="text" placeholder="Objekt, Größe, gewünschte Häufigkeit oder Wunschtermin"></textarea></label>
+      </div>
+      <div class="send">
+        <a class="btn wa" id="sendwa" href="https://wa.me/4915730719711" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp senden</a>
+        <a class="btn light" id="sendmail" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>E-Mail senden</a>
+      </div>
+      <p id="msg" role="status" aria-live="polite"></p>
+      <p class="hint">Ihre Angaben werden in eine Nachricht übernommen. Abgeschickt wird sie erst in WhatsApp oder in Ihrem E-Mail-Programm. Hinweise im <a href="#datenschutz">Datenschutz</a>.</p>
+    </form>
+  </section>
+
+  <section class="sec" id="einblicke" aria-labelledby="h-einblicke">
+    <div class="sec-head">
+      <h2 id="h-einblicke">Einblicke in unsere Arbeit</h2>
+      <p>Fotos aus echten Einsätzen: gereinigte Wohnungen und abgeschlossene Entrümpelungen.</p>
+    </div>
+    <div class="slider">
+      <div class="track" id="track" tabindex="0" aria-label="Fotogalerie, seitlich wischen">
+        <figure><img src="img/flur.jpg" width="640" height="848" alt="Gereinigter Flur einer Wohnung" loading="lazy"><figcaption>Flur</figcaption></figure>
+        <figure><img src="img/zimmer.jpg" width="640" height="845" alt="Gereinigtes helles Zimmer mit Balkonfenster" loading="lazy"><figcaption>Zimmer</figcaption></figure>
+        <figure><img src="img/kueche.jpg" width="640" height="844" alt="Gereinigte Küche mit Dachschräge" loading="lazy"><figcaption>Küche</figcaption></figure>
+        <figure><img src="img/bad.jpg" width="640" height="848" alt="Gereinigtes Badezimmer mit Dusche" loading="lazy"><figcaption>Badezimmer</figcaption></figure>
+        <figure><img src="img/wohnzimmer.jpg" width="640" height="853" alt="Gereinigter Wohnraum mit Fensterfront" loading="lazy"><figcaption>Wohnraum</figcaption></figure>
+        <figure><img src="img/wc.jpg" width="640" height="840" alt="Gereinigtes Gäste-WC" loading="lazy"><figcaption>Gäste-WC</figcaption></figure>
+        <figure><img src="img/container1.jpg" width="640" height="853" alt="Zwei beladene Container nach einer Entrümpelung" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
+        <figure><img src="img/container2.jpg" width="640" height="1138" alt="Container mit zerlegten Holzmöbeln" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
+        <figure><img src="img/container3.jpg" width="640" height="1138" alt="Container mit Polstermöbeln" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
+      </div>
+      <div class="arrows">
+        <button class="arrow" type="button" id="prev" aria-label="Vorherige Fotos"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button>
+        <button class="arrow" type="button" id="next" aria-label="Nächste Fotos"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="leistungen" aria-labelledby="h-leist" style="padding-top:0">
+    <div class="sec-head">
+      <h2 id="h-leist">Unsere Leistungen in Reutlingen im Überblick</h2>
+      <p>Für Gewerbe, Hausverwaltungen und Privathaushalte. Umfang und Häufigkeit stimmen wir mit Ihnen ab.</p>
+    </div>
+    <div class="cards">
+      <article class="card" id="l-gebaeude"><img src="img/s_gebaeude.jpg" width="600" height="600" alt="Reinigungskraft wischt einen Hallenboden" loading="lazy"><h3>Gebäudereinigung</h3><p>Regelmäßige Unterhaltsreinigung von Gewerbe- und Wohnobjekten: Böden, Oberflächen, Sanitärräume und Gemeinschaftsflächen nach festem Plan.</p></article>
+      <article class="card" id="l-treppenhaus"><img src="img/s_treppe.jpg" width="600" height="600" alt="Treppenhaus wird gesaugt" loading="lazy"><h3>Treppenhausreinigung</h3><p>Saubere Eingänge, Treppen, Geländer und Briefkastenanlagen. Für Hausverwaltungen, Vermieter und Eigentümergemeinschaften.</p></article>
+      <article class="card" id="l-buero"><img src="img/s_buero.jpg" width="600" height="600" alt="Reinigung eines Büroarbeitsplatzes" loading="lazy"><h3>Büroreinigung</h3><p>Arbeitsplätze, Böden, Küchen und Sanitärräume. Gern früh morgens oder abends, damit Ihr Betrieb ungestört bleibt.</p></article>
+      <article class="card" id="l-fenster"><img src="img/s_fenster.jpg" width="600" height="600" alt="Fenster wird mit Abzieher gereinigt" loading="lazy"><h3>Fensterreinigung</h3><p>Streifenfreie Reinigung von Fenstern, Rahmen und Glasflächen, innen und außen. Für Gewerbe und Privathaushalte.</p></article>
+      <article class="card" id="l-haushalt"><img src="img/s_haushalt.jpg" width="600" height="600" alt="Sauberes modernes Badezimmer" loading="lazy"><h3>Haushaltsreinigung</h3><p>Zuverlässige Reinigung für Ihr Zuhause, einmalig, regelmäßig oder zum Auszug mit besenreiner Übergabe.</p></article>
+      <article class="card" id="l-entruempelung"><img src="img/s_entruempel.jpg" width="600" height="600" alt="Container mit alten Möbeln bei einer Entrümpelung" loading="lazy"><h3>Entrümpelung</h3><p>Räumung von Wohnungen, Kellern, Dachböden und Büros. Wir tragen heraus, sorgen für die Abfuhr und übergeben besenrein.</p></article>
+    </div>
+    <p class="more">Weitere Leistungen rund um Reinigung und Räumung auf Anfrage.</p>
+  </section>
+
+  <section id="kontakt" aria-labelledby="h-person">
+    <div class="person">
+      <div class="p-top">
+        <div class="avatar"><img src="img/logo2.jpg" width="200" height="200" alt=""></div>
+        <div class="p-name"><small>Ihr Ansprechpartner</small><b id="h-person">Yamen Shihab</b><span>Inhaber</span></div>
+        <a class="btn" href="#anfrage">Jetzt Angebot anfragen <svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="tiles">
+        <a class="tile" href="tel:+4915730719711"><i><svg class="ico"><use href="#i-phone"/></svg></i><span><small>Telefon und WhatsApp</small><b>01573&nbsp;0719711</b></span></a>
+        <a class="tile" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><i><svg class="ico"><use href="#i-mail"/></svg></i><span><small>E-Mail</small><b>info@ar-gebaeudereinigung-reutlingen.de</b></span></a>
+        <div class="tile"><i><svg class="ico"><use href="#i-clock"/></svg></i><span><small>Erreichbar</small><b>8:00 bis 16:00 Uhr</b></span></div>
+        <a class="tile" href="https://www.google.com/maps/search/?api=1&amp;query=Metzgerstra%C3%9Fe+21%2C+72764+Reutlingen" rel="noopener"><i><svg class="ico"><use href="#i-pin"/></svg></i><span><small>Adresse</small><b>Metzgerstraße 21, 72764 Reutlingen</b></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="warum" aria-labelledby="h-warum">
+    <div class="sec-head">
+      <h2 id="h-warum">Warum Kunden in Reutlingen auf A &amp; R setzen</h2>
+    </div>
+    <div class="why">
+      <div><svg class="ico"><use href="#i-user"/></svg><h3>Direkter Ansprechpartner</h3><p>Sie sprechen mit dem Inhaber. Absprachen gehen nicht über mehrere Stellen verloren.</p></div>
+      <div><svg class="ico"><use href="#i-box"/></svg><h3>Reinigung und Räumung</h3><p>Erst entrümpeln, dann reinigen: beides von einem Team, ohne zweiten Dienstleister.</p></div>
+      <div><svg class="ico"><use href="#i-calendar"/></svg><h3>Termine nach Absprache</h3><p>Wir richten uns nach Ihren Öffnungs- und Arbeitszeiten, einmalig oder regelmäßig.</p></div>
+      <div><svg class="ico"><use href="#i-pin"/></svg><h3>Aus Reutlingen</h3><p>Kurze Wege in der Stadt und im Umkreis von 50 Kilometern.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="einsatzgebiet" aria-labelledby="h-gebiet" style="padding-top:0">
+    <div class="area">
+      <div>
+        <h2 id="h-gebiet">Unser Einsatzgebiet in Reutlingen und Umgebung</h2>
+        <p>Unser Sitz ist in der Metzgerstraße in Reutlingen. Wir übernehmen Aufträge in der Kernstadt, in allen Stadtteilen und im Umkreis von 50 Kilometern. Ihr Ort ist nicht dabei? Fragen Sie einfach nach.</p>
+      </div>
+      <div>
+        <div class="grp"><h3>Reutlinger Stadtteile</h3>
+          <div class="chips"><span>Innenstadt</span><span>Betzingen</span><span>Ohmenhausen</span><span>Orschel-Hagen</span><span>Sondelfingen</span><span>Rommelsbach</span><span>Mittelstadt</span><span>Degerschlacht</span><span>Gönningen</span></div>
+        </div>
+        <div class="grp"><h3>Umgebung</h3>
+          <div class="chips"><span>Pfullingen</span><span>Eningen</span><span>Metzingen</span><span>Tübingen</span><span>Rottenburg</span><span>Nürtingen</span><span>Esslingen</span><span>Stuttgart</span><span>Balingen</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ablauf" aria-labelledby="h-ablauf" style="padding-top:0">
+    <div class="sec-head">
+      <h2 id="h-ablauf">Ablauf: in wenigen Schritten zu sauberen Räumen</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Anfrage</h3><p>Sie schreiben per WhatsApp, E-Mail oder rufen an.</p></li>
+      <li><h3>Besichtigung</h3><p>Wir sehen uns das Objekt an und klären offene Fragen.</p></li>
+      <li><h3>Angebot</h3><p>Sie erhalten ein Angebot mit Umfang und Termin.</p></li>
+      <li><h3>Einsatz</h3><p>Wir reinigen oder räumen zum vereinbarten Termin.</p></li>
+      <li><h3>Abnahme</h3><p>Wir gehen das Ergebnis gemeinsam mit Ihnen durch.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:0">
+    <div class="sec-head">
+      <h2 id="h-faq">Häufig gestellte Fragen</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Was kostet eine Reinigung oder Entrümpelung?</summary><p>Der Preis hängt von Größe, Zustand und Häufigkeit ab. Schreiben Sie uns kurz, worum es geht. Nach Rücksprache oder Besichtigung erhalten Sie ein Angebot.</p></details>
+      <details><summary>Reinigen Sie auch außerhalb von Reutlingen?</summary><p>Ja. Wir arbeiten im Umkreis von 50 Kilometern um Reutlingen, zum Beispiel in Metzingen, Tübingen, Pfullingen oder Nürtingen.</p></details>
+      <details><summary>Wie schnell bekomme ich einen Termin?</summary><p>Das hängt vom Umfang und unserer Auslastung ab. Nennen Sie uns Ihren Wunschtermin in der Anfrage, dann sagen wir Ihnen direkt, ob er passt.</p></details>
+      <details><summary>Wie läuft eine Entrümpelung ab?</summary><p>Wir sehen uns die Räume an, nennen Ihnen den Preis und räumen am vereinbarten Tag. Danach übergeben wir die Räume besenrein, auf Wunsch auch gereinigt.</p></details>
+      <details><summary>Muss ich während der Reinigung anwesend sein?</summary><p>Nein, nicht unbedingt. Den Zugang, zum Beispiel über eine Schlüsselübergabe, besprechen wir vorher mit Ihnen.</p></details>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="h-cta">
+    <div>
+      <h2 id="h-cta">Jetzt Kontakt aufnehmen</h2>
+      <p>Beschreiben Sie kurz Ihr Objekt. Wir melden uns mit einem passenden Angebot.</p>
+      <a class="btn light" href="#anfrage">Angebot anfragen <svg class="ico"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="cta-list">
+      <a href="tel:+4915730719711"><svg class="ico"><use href="#i-phone"/></svg>01573&nbsp;0719711</a>
+      <a href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>info@ar-gebaeudereinigung-reutlingen.de</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Metzgerstra%C3%9Fe+21%2C+72764+Reutlingen" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg>Metzgerstraße 21, 72764 Reutlingen</a>
+      <span><svg class="ico"><use href="#i-clock"/></svg>8:00 bis 16:00 Uhr</span>
+    </div>
+  </section>
+
+<section id="impressum" class="legal">
+    <a class="back" href="#top">← Zurück zur Startseite</a>
+    <h2>Impressum</h2>
+    <h3>Angaben gemäß § 5 DDG</h3>
+    <p>A &amp; R Gebäudereinigung<br>Inhaber: Yamen Shihab<br>Metzgerstraße 21<br>72764 Reutlingen</p>
+    <h3>Kontakt</h3>
+    <p>Telefon und WhatsApp: 01573&nbsp;0719711<br>E-Mail: info@ar-gebaeudereinigung-reutlingen.de</p>
+    <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+    <p>Yamen Shihab, Anschrift wie oben.</p>
+    <h3>Haftung für Inhalte</h3>
+    <p>Wir erstellen die Inhalte dieser Website mit Sorgfalt. Für die Richtigkeit, Vollständigkeit und Aktualität können wir keine Gewähr übernehmen. Als Diensteanbieter sind wir nach den allgemeinen Gesetzen für eigene Inhalte verantwortlich.</p>
+    <h3>Haftung für Links</h3>
+    <p>Diese Website enthält Links zu externen Seiten, auf deren Inhalte wir keinen Einfluss haben. Für diese Inhalte ist immer der jeweilige Anbieter verantwortlich. Bei Bekanntwerden von Rechtsverstößen entfernen wir solche Links umgehend.</p>
+    <h3>Urheberrecht</h3>
+    <p>Texte, Bilder und Logo auf dieser Website unterliegen dem Urheberrecht. Eine Verwendung außerhalb der gesetzlichen Grenzen bedarf unserer Zustimmung.</p>
+    <h3>Verbraucherstreitbeilegung</h3>
+    <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </section>
+
+  <section id="datenschutz" class="legal">
+    <a class="back" href="#top">← Zurück zur Startseite</a>
+    <h2>Datenschutzerklärung</h2>
+    <h3>1. Verantwortlicher</h3>
+    <p>Yamen Shihab, A &amp; R Gebäudereinigung, Metzgerstraße 21, 72764 Reutlingen<br>Telefon: 01573&nbsp;0719711<br>E-Mail: info@ar-gebaeudereinigung-reutlingen.de</p>
+    <h3>2. Hosting und Aufruf der Website</h3>
+    <p>Diese Website wird bei GitHub Pages gehostet. Anbieter ist GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Website verarbeitet GitHub technisch notwendige Daten in Server-Logfiles, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser und Betriebssystem. Das ist nötig, um die Seite auszuliefern und sicher zu betreiben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+    <p>Dabei können Daten in die USA übermittelt werden. GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Die Übermittlung erfolgt auf Grundlage des Angemessenheitsbeschlusses der EU-Kommission (Art. 45 DSGVO). Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: docs.github.com/site-policy/privacy-policies/github-general-privacy-statement.</p>
+    <h3>3. Schriftarten</h3>
+    <p>Die auf dieser Website verwendeten Schriftarten sind lokal auf unserem Server gespeichert. Beim Aufruf der Seite wird keine Verbindung zu Servern von Google oder anderen Schriftanbietern hergestellt.</p>
+    <h3>4. Kontaktaufnahme</h3>
+    <p>Wenn Sie uns anrufen, per E-Mail oder per WhatsApp schreiben, verarbeiten wir Ihre Angaben (zum Beispiel Name, Kontaktdaten und den Inhalt Ihrer Anfrage), um Ihre Anfrage zu beantworten und ein Angebot zu erstellen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sonst Art. 6 Abs. 1 lit. f DSGVO. Wir löschen die Daten, wenn sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+    <h3>5. Anfrageformular und WhatsApp</h3>
+    <p>Das Formular auf dieser Seite sendet selbst keine Daten an uns. Es bereitet nur eine Nachricht vor. Erst wenn Sie „WhatsApp senden“ oder „E-Mail senden“ anklicken, öffnet sich WhatsApp beziehungsweise Ihr E-Mail-Programm, und Sie entscheiden dort, ob Sie die Nachricht abschicken. Für die Nutzung von WhatsApp gelten die Datenschutzbestimmungen des Anbieters (WhatsApp Ireland Limited).</p>
+    <h3>6. Links zu Google Maps</h3>
+    <p>Die Adresse auf dieser Seite ist mit Google Maps verlinkt. Erst wenn Sie den Link anklicken, werden Sie zu Google weitergeleitet. Dort gelten die Datenschutzbestimmungen von Google.</p>
+    <h3>7. Ihre Rechte</h3>
+    <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Wenden Sie sich dafür an die oben genannte Adresse.</p>
+    <h3>8. Beschwerderecht</h3>
+    <p>Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart.</p>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="fbrand"><img src="img/logo2.jpg" alt="" width="48" height="48">A &amp; R Gebäudereinigung</div>
+        <p>Gebäudereinigung und Entrümpelung in Reutlingen und im Umkreis von 50 km.</p>
+      </div>
+      <div>
+        <h2 class="fh">Leistungen</h2>
+        <ul>
+          <li><a href="#l-gebaeude">Gebäudereinigung</a></li>
+          <li><a href="#l-treppenhaus">Treppenhausreinigung</a></li>
+          <li><a href="#l-buero">Büroreinigung</a></li>
+          <li><a href="#l-fenster">Fensterreinigung</a></li>
+          <li><a href="#l-haushalt">Haushaltsreinigung</a></li>
+          <li><a href="#l-entruempelung">Entrümpelung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fh">Kontakt</h2>
+        <ul>
+          <li>Metzgerstraße 21<br>72764 Reutlingen</li>
+          <li><a href="tel:+4915730719711">01573&nbsp;0719711</a></li>
+          <li><a href="mailto:info@ar-gebaeudereinigung-reutlingen.de">E-Mail schreiben</a></li>
+          <li>8:00 bis 16:00 Uhr</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fh">Rechtliches</h2>
+        <ul>
+          <li><a href="#impressum">Impressum</a></li>
+          <li><a href="#datenschutz">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 A &amp; R Gebäudereinigung</span>
+      <span>Inhaber: Yamen Shihab</span>
+    </div>
+  </div>
+</footer>
+
+<aside aria-label="WhatsApp"><a class="wa-float" href="https://wa.me/4915730719711" rel="noopener" aria-label="Per WhatsApp schreiben" title="Per WhatsApp schreiben"><svg><use href="#i-wa"/></svg></a></aside>
+
+<nav class="mbar" aria-label="Schnellkontakt">
+  <a href="tel:+4915730719711"><svg><use href="#i-phone"/></svg>Anrufen</a>
+  <a href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg><use href="#i-mail"/></svg>E-Mail</a>
+  <a class="wa-i" href="https://wa.me/4915730719711" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="#anfrage"><svg><use href="#i-form"/></svg>Anfrage</a>
+</nav>
+
+<script>
+(function(){
+  var WA='https://wa.me/4915730719711', TO='info@ar-gebaeudereinigung-reutlingen.de';
+  var f=document.getElementById('anfrage'), wa=document.getElementById('sendwa'), ml=document.getElementById('sendmail'), m=document.getElementById('msg');
+  function v(id){return document.getElementById(id).value.trim();}
+  function text(){
+    return 'Hallo, ich möchte ein Angebot anfragen.\n\nName: '+v('name')
+      +'\nLeistung: '+v('art')
+      +(v('ort')?'\nOrt: '+v('ort'):'')
+      +(v('tel')?'\nTelefon: '+v('tel'):'')
+      +(v('text')?'\n\nNachricht: '+v('text'):'');
+  }
+  function update(){
+    wa.href=WA+'?text='+encodeURIComponent(text());
+    ml.href='mailto:'+TO+'?subject='+encodeURIComponent('Anfrage: '+v('art')+(v('ort')?' in '+v('ort'):''))+'&body='+encodeURIComponent(text());
+  }
+  function check(e){
+    if(!v('name')){
+      e.preventDefault();
+      m.textContent='Bitte tragen Sie zuerst Ihren Namen ein.';
+      document.getElementById('name').focus();
+      return;
+    }
+    m.textContent=''; update();
+  }
+  f.addEventListener('submit',function(e){e.preventDefault();});
+  f.addEventListener('input',function(){update(); if(v('name')) m.textContent='';});
+  wa.addEventListener('click',check);
+  ml.addEventListener('click',check);
+  update();
+
+  // Menü
+  var hdr=document.getElementById('hdr'), bt=document.getElementById('burger');
+  function menu(o){hdr.classList.toggle('open',o);bt.setAttribute('aria-expanded',o?'true':'false');bt.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen');}
+  bt.addEventListener('click',function(){menu(!hdr.classList.contains('open'));});
+  document.getElementById('nav').addEventListener('click',function(e){if(e.target.closest('a'))menu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false);});
+  document.addEventListener('pointerdown',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))menu(false);});
+
+  // Slider
+  var tr=document.getElementById('track');
+  function step(d){var fig=tr.querySelector('figure');var w=fig?fig.getBoundingClientRect().width+16:300;tr.scrollBy({left:d*w,behavior:'smooth'});}
+  document.getElementById('prev').addEventListener('click',function(){step(-1);});
+  document.getElementById('next').addEventListener('click',function(){step(1);});
+})();
+</script>
+
+</body>
+</html>
