@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>A &amp; R Gebäudereinigung</title>
+<title>Gebäudereinigung Reutlingen | A &amp; R Gebäudereinigung</title>
 <meta name="description" content="A &amp; R Gebäudereinigung in Reutlingen: Gebäude-, Treppenhaus-, Büro-, Fenster- und Haushaltsreinigung sowie Entrümpelung im Umkreis von 50 km.">
 <style>
 @font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/roboto-latin-400-normal.woff2) format('woff2')}
 @font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/roboto-latin-500-normal.woff2) format('woff2')}
 @font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/roboto-latin-700-normal.woff2) format('woff2')}
-@font-face{font-family:'Roboto';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/roboto-latin-900-normal.woff2) format('woff2')}
+[hidden]{display:none!important}
 :root{
   --ink:#0c1a3a;        /* Navy aus dem Logo, ersetzt das Schwarz der Referenz */
   --navy:#0e2250;       /* Karten, Formular, Footer */
@@ -61,7 +61,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;backgrou
 .hbar{display:flex;align-items:center;gap:24px;padding-block:12px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
 .brand img{width:52px;height:52px;border-radius:50%;display:block}
-.brand b{display:block;font-size:1.25rem;font-weight:900;color:var(--ink);line-height:1.1}
+.brand b{display:block;font-size:1.25rem;font-weight:700;color:var(--ink);line-height:1.1}
 .brand small{display:block;font-size:.78rem;color:var(--muted);letter-spacing:.02em}
 nav.main{display:flex;gap:24px;font-weight:500}
 nav.main a{text-decoration:none;color:var(--text)}
@@ -237,7 +237,7 @@ main:has(.legal:target) > :not(.legal){display:none}
   header.site.open nav.main{display:flex}
   nav.main a{padding:13px 0;border-top:1px solid var(--line);font-size:1.05rem}
   .burger{display:block}
-  .hcta{display:none}
+  .hcta{padding:.65rem 1rem;font-size:.95rem}
   .area{grid-template-columns:1fr;gap:28px}
   .cta-band{grid-template-columns:1fr;padding:30px}
   .track{grid-auto-columns:calc((100% - 16px)/2)}
@@ -247,6 +247,7 @@ main:has(.legal:target) > :not(.legal){display:none}
   body{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
   .topbar .wrap{justify-content:center;gap:18px;font-size:.85rem}
   .topbar .t-mail{display:none}
+  .hcta{display:none}
   .brand img{width:44px;height:44px}
   .brand b{font-size:1.1rem}
   .hero{padding:20px;margin-top:16px;border-radius:14px;gap:24px}
@@ -289,18 +290,36 @@ main:has(.legal:target) > :not(.legal){display:none}
   .mbar a.wa-i svg{fill:#4ade80}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:500}
+.skip:focus{top:10px}
+.card-cta{display:inline-flex;align-items:center;gap:8px;margin:4px 8px 0;color:#fff;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding:10px 0 4px;align-self:start;justify-self:start;min-height:44px}
+.card-cta:hover{border-bottom-color:#fff}
+.card{grid-template-rows:auto auto 1fr auto}
+.fgrid input[aria-invalid="true"]{border-color:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.3)}
+.fallback{background:#16295a;border:1px solid #2a3f74;border-radius:10px;padding:14px;display:grid;gap:10px;color:#dfe6f3;font-size:.92rem}
+.fallback b{color:#fff;overflow-wrap:anywhere}
+.fallback .btn{justify-self:start;padding:.6rem 1rem}
+.arrow:disabled{opacity:.35;cursor:default}
+@media (max-width:1300px) and (min-width:641px){.fbottom{padding-right:90px}}
 </style>
 <link rel="canonical" href="https://ar-gebaeudereinigung-reutlingen.de/">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta name="theme-color" content="#0c1a3a">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="A &amp; R Gebäudereinigung">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
 <meta property="og:title" content="A &amp; R Gebäudereinigung Reutlingen">
 <meta property="og:description" content="Gebäude-, Treppenhaus-, Büro-, Fenster- und Haushaltsreinigung sowie Entrümpelung in Reutlingen und im Umkreis von 50 km.">
 <meta property="og:url" content="https://ar-gebaeudereinigung-reutlingen.de/">
 <meta property="og:image" content="https://ar-gebaeudereinigung-reutlingen.de/img/og-logo.jpg">
 <link rel="preload" href="fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/roboto-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/roboto-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
@@ -351,6 +370,7 @@ main:has(.legal:target) > :not(.legal){display:none}
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
 </svg>
 
+<a class="skip" href="#anfrage">Zum Anfrageformular springen</a>
 <aside class="topbar" aria-label="Kontakt">
   <div class="wrap">
     <a class="t-mail" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>info@ar-gebaeudereinigung-reutlingen.de</a>
@@ -361,8 +381,8 @@ main:has(.legal:target) > :not(.legal){display:none}
 
 <header class="site" id="hdr">
   <div class="wrap hbar">
-    <a class="brand" href="#top" aria-label="A &amp; R Gebäudereinigung, zur Startseite">
-      <img src="img/logo2.jpg" alt="" width="52" height="52">
+    <a class="brand" href="#top">
+      <img src="img/logo2.webp" alt="" width="52" height="52">
       <span><b>A &amp; R</b><small>Gebäudereinigung</small></span>
     </a>
     <nav class="main" id="nav" aria-label="Hauptmenü">
@@ -408,14 +428,14 @@ main:has(.legal:target) > :not(.legal){display:none}
 
     <form class="formcard" id="anfrage" novalidate autocomplete="off" aria-labelledby="f-h">
       <h2 id="f-h">Angebot und Termin anfragen</h2>
-      <p class="sub">Unverbindlich. Wir melden uns mit einem Angebot bei Ihnen.</p>
+      <p class="sub">Unverbindlich. Wir melden uns mit einem Angebot bei Ihnen. Pflichtfeld: Name *</p>
       <div class="fgrid">
-        <label>Name*<input id="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required></label>
+        <label>Name *<input id="name" type="text" autocomplete="name" placeholder="Vor- und Nachname" required aria-required="true" aria-describedby="msg"></label>
         <label>Telefon<input id="tel" type="tel" autocomplete="tel" placeholder="Für Rückfragen"></label>
         <label>Ort oder PLZ<input id="ort" type="text" autocomplete="postal-code" placeholder="z. B. 72764 Reutlingen"></label>
         <label>Leistung
           <select id="art">
-            <option>Gebäudereinigung</option><option>Treppenhausreinigung</option><option>Büroreinigung</option><option>Fensterreinigung</option><option>Haushaltsreinigung</option><option>Entrümpelung</option><option>Sonstiges</option>
+            <option value="">Bitte auswählen</option><option>Gebäudereinigung</option><option>Treppenhausreinigung</option><option>Büroreinigung</option><option>Fensterreinigung</option><option>Haushaltsreinigung</option><option>Entrümpelung</option><option>Sonstiges</option>
           </select>
         </label>
         <label class="full">Ihre Nachricht<textarea id="text" placeholder="Objekt, Größe, gewünschte Häufigkeit oder Wunschtermin"></textarea></label>
@@ -425,6 +445,11 @@ main:has(.legal:target) > :not(.legal){display:none}
         <a class="btn light" id="sendmail" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>E-Mail senden</a>
       </div>
       <div class="form-foot"><p id="msg" role="status" aria-live="polite"></p><button type="button" class="clear" id="clear">Eingaben löschen</button></div>
+      <div class="fallback" id="fallback" hidden>
+        <p>Es hat sich kein E-Mail-Programm geöffnet. Ihre Eingaben sind noch da. Kopieren Sie die Nachricht und senden Sie sie an <b>info@ar-gebaeudereinigung-reutlingen.de</b>, oder nutzen Sie WhatsApp.</p>
+        <button type="button" class="btn light" id="copy">Nachricht kopieren</button>
+        <textarea id="copytext" readonly aria-label="Vorbereitete Nachricht" hidden></textarea>
+      </div>
       <p class="hint">Ihre Angaben werden in eine Nachricht übernommen. Abgeschickt wird sie erst in WhatsApp oder in Ihrem E-Mail-Programm. Hinweise im <a href="#datenschutz">Datenschutz</a>.</p>
     </form>
   </section>
@@ -436,15 +461,15 @@ main:has(.legal:target) > :not(.legal){display:none}
     </div>
     <div class="slider">
       <div class="track" id="track" tabindex="0" aria-label="Fotogalerie, seitlich wischen">
-        <figure><img src="img/flur.jpg" width="640" height="848" alt="Gereinigter Flur einer Wohnung" loading="lazy"><figcaption>Flur</figcaption></figure>
-        <figure><img src="img/zimmer.jpg" width="640" height="845" alt="Gereinigtes helles Zimmer mit Balkonfenster" loading="lazy"><figcaption>Zimmer</figcaption></figure>
-        <figure><img src="img/kueche.jpg" width="640" height="844" alt="Gereinigte Küche mit Dachschräge" loading="lazy"><figcaption>Küche</figcaption></figure>
-        <figure><img src="img/bad.jpg" width="640" height="848" alt="Gereinigtes Badezimmer mit Dusche" loading="lazy"><figcaption>Badezimmer</figcaption></figure>
-        <figure><img src="img/wohnzimmer.jpg" width="640" height="853" alt="Gereinigter Wohnraum mit Fensterfront" loading="lazy"><figcaption>Wohnraum</figcaption></figure>
-        <figure><img src="img/wc.jpg" width="640" height="840" alt="Gereinigtes Gäste-WC" loading="lazy"><figcaption>Gäste-WC</figcaption></figure>
-        <figure><img src="img/container1.jpg" width="640" height="853" alt="Zwei beladene Container nach einer Entrümpelung" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
-        <figure><img src="img/container2.jpg" width="640" height="1138" alt="Container mit zerlegten Holzmöbeln" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
-        <figure><img src="img/container3.jpg" width="640" height="1138" alt="Container mit Polstermöbeln" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
+        <figure><img src="img/flur-640.webp" srcset="img/flur-400.webp 400w, img/flur-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="848" alt="Gereinigter Flur einer Wohnung" loading="lazy"><figcaption>Flur</figcaption></figure>
+        <figure><img src="img/zimmer-640.webp" srcset="img/zimmer-400.webp 400w, img/zimmer-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="845" alt="Gereinigtes helles Zimmer mit Balkonfenster" loading="lazy"><figcaption>Zimmer</figcaption></figure>
+        <figure><img src="img/kueche-640.webp" srcset="img/kueche-400.webp 400w, img/kueche-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="844" alt="Gereinigte Küche mit Dachschräge" loading="lazy"><figcaption>Küche</figcaption></figure>
+        <figure><img src="img/bad-640.webp" srcset="img/bad-400.webp 400w, img/bad-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="848" alt="Gereinigtes Badezimmer mit Dusche" loading="lazy"><figcaption>Badezimmer</figcaption></figure>
+        <figure><img src="img/wohnzimmer-640.webp" srcset="img/wohnzimmer-400.webp 400w, img/wohnzimmer-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="853" alt="Gereinigter Wohnraum mit Fensterfront" loading="lazy"><figcaption>Wohnraum</figcaption></figure>
+        <figure><img src="img/wc-640.webp" srcset="img/wc-400.webp 400w, img/wc-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="840" alt="Gereinigtes Gäste-WC" loading="lazy"><figcaption>Gäste-WC</figcaption></figure>
+        <figure><img src="img/container1-640.webp" srcset="img/container1-400.webp 400w, img/container1-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="853" alt="Zwei beladene Container nach einer Entrümpelung" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
+        <figure><img src="img/container2-640.webp" srcset="img/container2-400.webp 400w, img/container2-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="1138" alt="Container mit zerlegten Holzmöbeln" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
+        <figure><img src="img/container3-640.webp" srcset="img/container3-400.webp 400w, img/container3-640.webp 640w" sizes="(max-width:640px) 82vw, (max-width:860px) 50vw, 384px" width="640" height="1138" alt="Container mit Polstermöbeln" loading="lazy"><figcaption>Entrümpelung</figcaption></figure>
       </div>
       <div class="arrows">
         <button class="arrow" type="button" id="prev" aria-label="Vorherige Fotos"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button>
@@ -459,12 +484,12 @@ main:has(.legal:target) > :not(.legal){display:none}
       <p>Für Gewerbe, Hausverwaltungen und Privathaushalte. Umfang und Häufigkeit stimmen wir mit Ihnen ab.</p>
     </div>
     <div class="cards">
-      <article class="card" id="l-gebaeude"><img src="img/s_gebaeude.jpg" width="600" height="600" alt="Reinigungskraft wischt einen Hallenboden" loading="lazy"><h3>Gebäudereinigung</h3><p>Regelmäßige Unterhaltsreinigung von Gewerbe- und Wohnobjekten: Böden, Oberflächen, Sanitärräume und Gemeinschaftsflächen nach festem Plan.</p></article>
-      <article class="card" id="l-treppenhaus"><img src="img/s_treppe.jpg" width="600" height="600" alt="Treppenhaus wird gesaugt" loading="lazy"><h3>Treppenhausreinigung</h3><p>Saubere Eingänge, Treppen, Geländer und Briefkastenanlagen. Für Hausverwaltungen, Vermieter und Eigentümergemeinschaften.</p></article>
-      <article class="card" id="l-buero"><img src="img/s_buero.jpg" width="600" height="600" alt="Reinigung eines Büroarbeitsplatzes" loading="lazy"><h3>Büroreinigung</h3><p>Arbeitsplätze, Böden, Küchen und Sanitärräume. Gern früh morgens oder abends, damit Ihr Betrieb ungestört bleibt.</p></article>
-      <article class="card" id="l-fenster"><img src="img/s_fenster.jpg" width="600" height="600" alt="Fenster wird mit Abzieher gereinigt" loading="lazy"><h3>Fensterreinigung</h3><p>Streifenfreie Reinigung von Fenstern, Rahmen und Glasflächen, innen und außen. Für Gewerbe und Privathaushalte.</p></article>
-      <article class="card" id="l-haushalt"><img src="img/s_haushalt.jpg" width="600" height="600" alt="Sauberes modernes Badezimmer" loading="lazy"><h3>Haushaltsreinigung</h3><p>Zuverlässige Reinigung für Ihr Zuhause, einmalig, regelmäßig oder zum Auszug mit besenreiner Übergabe.</p></article>
-      <article class="card" id="l-entruempelung"><img src="img/s_entruempel.jpg" width="600" height="600" alt="Container mit alten Möbeln bei einer Entrümpelung" loading="lazy"><h3>Entrümpelung</h3><p>Räumung von Wohnungen, Kellern, Dachböden und Büros. Wir tragen heraus, sorgen für die Abfuhr und übergeben besenrein.</p></article>
+      <article class="card" id="l-gebaeude"><img src="img/s_gebaeude.webp" width="400" height="402" alt="Reinigungskraft wischt einen Hallenboden" loading="lazy"><h3>Gebäudereinigung</h3><p>Regelmäßige Unterhaltsreinigung von Gewerbe- und Wohnobjekten: Böden, Oberflächen, Sanitärräume und Gemeinschaftsflächen nach festem Plan.</p><a class="card-cta" href="#anfrage" data-service="Gebäudereinigung">Gebäudereinigung anfragen <svg class="ico"><use href="#i-arrow"/></svg></a></article>
+      <article class="card" id="l-treppenhaus"><img src="img/s_treppe.webp" width="400" height="402" alt="Treppenhaus wird gesaugt" loading="lazy"><h3>Treppenhausreinigung</h3><p>Saubere Eingänge, Treppen, Geländer und Briefkastenanlagen. Für Hausverwaltungen, Vermieter und Eigentümergemeinschaften.</p><a class="card-cta" href="#anfrage" data-service="Treppenhausreinigung">Treppenhausreinigung anfragen <svg class="ico"><use href="#i-arrow"/></svg></a></article>
+      <article class="card" id="l-buero"><img src="img/s_buero.webp" width="400" height="402" alt="Reinigung eines Büroarbeitsplatzes" loading="lazy"><h3>Büroreinigung</h3><p>Arbeitsplätze, Böden, Küchen und Sanitärräume. Gern früh morgens oder abends, damit Ihr Betrieb ungestört bleibt.</p><a class="card-cta" href="#anfrage" data-service="Büroreinigung">Büroreinigung anfragen <svg class="ico"><use href="#i-arrow"/></svg></a></article>
+      <article class="card" id="l-fenster"><img src="img/s_fenster.webp" width="404" height="402" alt="Fenster wird mit Abzieher gereinigt" loading="lazy"><h3>Fensterreinigung</h3><p>Streifenfreie Reinigung von Fenstern, Rahmen und Glasflächen, innen und außen. Für Gewerbe und Privathaushalte.</p><a class="card-cta" href="#anfrage" data-service="Fensterreinigung">Fensterreinigung anfragen <svg class="ico"><use href="#i-arrow"/></svg></a></article>
+      <article class="card" id="l-haushalt"><img src="img/s_haushalt.webp" width="400" height="400" alt="Sauberes modernes Badezimmer" loading="lazy"><h3>Haushaltsreinigung</h3><p>Zuverlässige Reinigung für Ihr Zuhause, einmalig, regelmäßig oder zum Auszug mit besenreiner Übergabe.</p><a class="card-cta" href="#anfrage" data-service="Haushaltsreinigung">Haushaltsreinigung anfragen <svg class="ico"><use href="#i-arrow"/></svg></a></article>
+      <article class="card" id="l-entruempelung"><img src="img/s_entruempel.webp" width="400" height="402" alt="Container mit alten Möbeln bei einer Entrümpelung" loading="lazy"><h3>Entrümpelung</h3><p>Räumung von Wohnungen, Kellern, Dachböden und Büros. Wir tragen heraus, sorgen für die Abfuhr und übergeben besenrein.</p><a class="card-cta" href="#anfrage" data-service="Entrümpelung">Entrümpelung anfragen <svg class="ico"><use href="#i-arrow"/></svg></a></article>
     </div>
     <p class="more">Weitere Leistungen rund um Reinigung und Räumung auf Anfrage.</p>
   </section>
@@ -472,7 +497,7 @@ main:has(.legal:target) > :not(.legal){display:none}
   <section id="kontakt" aria-labelledby="h-person">
     <div class="person">
       <div class="p-top">
-        <div class="avatar"><img src="img/logo2.jpg" width="200" height="200" alt=""></div>
+        <div class="avatar"><img src="img/logo2.webp" width="200" height="200" alt=""></div>
         <div class="p-name"><small>Ihr Ansprechpartner</small><b id="h-person">Yamen Shihab</b><span>Inhaber</span></div>
         <a class="btn" href="#anfrage">Jetzt Angebot anfragen <svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
@@ -587,13 +612,15 @@ main:has(.legal:target) > :not(.legal){display:none}
     <h3>4. Kontaktaufnahme</h3>
     <p>Wenn Sie uns anrufen, per E-Mail oder per WhatsApp schreiben, verarbeiten wir Ihre Angaben (zum Beispiel Name, Kontaktdaten und den Inhalt Ihrer Anfrage), um Ihre Anfrage zu beantworten und ein Angebot zu erstellen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sonst Art. 6 Abs. 1 lit. f DSGVO. Wir löschen die Daten, wenn sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
     <h3>5. Anfrageformular und WhatsApp</h3>
-    <p>Das Formular auf dieser Seite sendet selbst keine Daten an uns. Es bereitet nur eine Nachricht vor. Erst wenn Sie „WhatsApp senden“ oder „E-Mail senden“ anklicken, öffnet sich WhatsApp beziehungsweise Ihr E-Mail-Programm, und Sie entscheiden dort, ob Sie die Nachricht abschicken. Für die Nutzung von WhatsApp gelten die Datenschutzbestimmungen des Anbieters (WhatsApp Ireland Limited).</p>
-    <h3>6. Links zu Google Maps</h3>
+    <p>Das Formular auf dieser Seite sendet selbst keine Daten an uns. Es bereitet nur eine Nachricht vor. Erst wenn Sie „WhatsApp senden“ oder „E-Mail senden“ anklicken, öffnet sich WhatsApp beziehungsweise Ihr E-Mail-Programm, und Sie entscheiden dort, ob Sie die Nachricht abschicken. Ihre Eingaben werden nicht gespeichert und nach dem Öffnen automatisch aus dem Formular gelöscht. Für die Nutzung von WhatsApp gelten die Datenschutzbestimmungen des Anbieters (WhatsApp Ireland Limited).</p>
+    <h3>6. Cookies und Tracking</h3>
+    <p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Tracking-Dienste.</p>
+    <h3>7. Links zu Google Maps</h3>
     <p>Die Adresse auf dieser Seite ist mit Google Maps verlinkt. Erst wenn Sie den Link anklicken, werden Sie zu Google weitergeleitet. Dort gelten die Datenschutzbestimmungen von Google.</p>
-    <h3>7. Ihre Rechte</h3>
+    <h3>8. Ihre Rechte</h3>
     <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Wenden Sie sich dafür an die oben genannte Adresse.</p>
-    <h3>8. Beschwerderecht</h3>
-    <p>Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart.</p>
+    <h3>9. Beschwerderecht</h3>
+    <p>Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Heilbronner Straße 35, 70191 Stuttgart.</p>
   </section>
 </main>
 
@@ -601,7 +628,7 @@ main:has(.legal:target) > :not(.legal){display:none}
   <div class="wrap">
     <div class="fcols">
       <div>
-        <div class="fbrand"><img src="img/logo2.jpg" alt="" width="48" height="48">A &amp; R Gebäudereinigung</div>
+        <div class="fbrand"><img src="img/logo2.webp" alt="" width="48" height="48">A &amp; R Gebäudereinigung</div>
         <p>Gebäudereinigung und Entrümpelung in Reutlingen und im Umkreis von 50 km.</p>
       </div>
       <div>
@@ -654,42 +681,70 @@ main:has(.legal:target) > :not(.legal){display:none}
   var WA='https://wa.me/4915730719711', TO='info@ar-gebaeudereinigung-reutlingen.de';
   var f=document.getElementById('anfrage'), wa=document.getElementById('sendwa'), ml=document.getElementById('sendmail'), m=document.getElementById('msg');
   function v(id){return document.getElementById(id).value.trim();}
+  var nameEl=document.getElementById('name'), sel=document.getElementById('art'), fb=document.getElementById('fallback'), ct=document.getElementById('copytext');
   function text(){
     return 'Hallo, ich möchte ein Angebot anfragen.\n\nName: '+v('name')
-      +'\nLeistung: '+v('art')
+      +(v('art')?'\nLeistung: '+v('art'):'')
       +(v('ort')?'\nOrt: '+v('ort'):'')
       +(v('tel')?'\nTelefon: '+v('tel'):'')
       +(v('text')?'\n\nNachricht: '+v('text'):'');
   }
   function update(){
     wa.href=WA+'?text='+encodeURIComponent(text());
-    ml.href='mailto:'+TO+'?subject='+encodeURIComponent('Anfrage: '+v('art')+(v('ort')?' in '+v('ort'):''))+'&body='+encodeURIComponent(text());
+    var subj=v('art')?'Anfrage: '+v('art'):'Anfrage über die Website';
+    ml.href='mailto:'+TO+'?subject='+encodeURIComponent(subj+(v('ort')?' in '+v('ort'):''))+'&body='+encodeURIComponent(text());
+  }
+  function say(t,ok){m.textContent=t;m.className=ok?'ok':'';}
+  function clearForm(){f.reset(); nameEl.removeAttribute('aria-invalid'); fb.hidden=true; say(''); update();}
+  // Formular erst leeren, wenn WhatsApp bzw. das E-Mail-Programm wirklich geöffnet wurde
+  function watch(kind){
+    var done=false;
+    function finish(opened){
+      if(done)return; done=true;
+      window.removeEventListener('blur',onBlur); document.removeEventListener('visibilitychange',onVis);
+      if(opened){
+        clearForm();
+        say(kind==='wa'?'WhatsApp wurde geöffnet. Bitte tippen Sie dort noch auf Senden. Das Formular wurde geleert.':'Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die Nachricht dort ab. Das Formular wurde geleert.',true);
+      }else if(kind==='mail'){
+        ct.value=text(); fb.hidden=false; say('');
+      }
+    }
+    function onBlur(){finish(true);}
+    function onVis(){if(document.hidden)finish(true);}
+    window.addEventListener('blur',onBlur); document.addEventListener('visibilitychange',onVis);
+    setTimeout(function(){finish(false);},1500);
   }
   function check(e){
+    fb.hidden=true;
     if(!v('name')){
       e.preventDefault();
-      m.textContent='Bitte tragen Sie zuerst Ihren Namen ein.';
-      document.getElementById('name').focus();
+      nameEl.setAttribute('aria-invalid','true');
+      say('Bitte tragen Sie zuerst Ihren Namen ein.');
+      nameEl.focus();
       return;
     }
-    m.textContent=''; update();
-    // Nach dem Öffnen von WhatsApp bzw. E-Mail: Formular automatisch leeren
-    setTimeout(function(){clearForm(); m.className='ok'; m.textContent='Ihre Nachricht wurde vorbereitet. Das Formular wurde geleert.';},400);
+    update(); say('');
+    watch(e.currentTarget===wa?'wa':'mail');
   }
-  function clearForm(){f.reset(); m.textContent=''; m.className=''; update();}
-  document.getElementById('clear').addEventListener('click',function(){clearForm(); document.getElementById('name').focus();});
+  document.getElementById('clear').addEventListener('click',function(){clearForm(); nameEl.focus();});
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=text(), btn=this;
+    function done(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Nachricht kopieren';},2500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){ct.hidden=false;ct.value=t;ct.select();});}
+    else{ct.hidden=false;ct.value=t;ct.select();}
+  });
   // Beim Neuladen oder Zurückkehren keine alten Eingaben anzeigen
   window.addEventListener('pageshow',function(){clearForm();});
   f.addEventListener('submit',function(e){e.preventDefault();});
-  f.addEventListener('input',function(){update(); if(v('name')){m.textContent='';m.className='';}});
+  f.addEventListener('input',function(){update(); if(v('name')){nameEl.removeAttribute('aria-invalid'); if(!m.classList.contains('ok'))say('');}});
   wa.addEventListener('click',check);
   ml.addEventListener('click',check);
   update();
 
   // "Angebot anfragen": zum Formular und Cursor ins Namensfeld
-  var nameEl=document.getElementById('name');
   function focusName(){setTimeout(function(){try{nameEl.focus({preventScroll:true});}catch(x){nameEl.focus();}},650);}
   document.addEventListener('click',function(e){var a=e.target.closest('a[href="#anfrage"]');if(!a)return;
+    if(a.dataset.service){sel.value=a.dataset.service;update();}
     if(location.hash==='#anfrage'){e.preventDefault();document.getElementById('anfrage').scrollIntoView({behavior:'smooth',block:'start'});}
     focusName();});
   if(location.hash==='#anfrage')focusName();
@@ -705,6 +760,10 @@ main:has(.legal:target) > :not(.legal){display:none}
   // Slider
   var tr=document.getElementById('track');
   function step(d){var fig=tr.querySelector('figure');var w=fig?fig.getBoundingClientRect().width+16:300;tr.scrollBy({left:d*w,behavior:'smooth'});}
+  var pv=document.getElementById('prev'), nx=document.getElementById('next');
+  function arrows(){pv.disabled=tr.scrollLeft<=2; nx.disabled=tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-2;}
+  tr.addEventListener('scroll',function(){window.requestAnimationFrame(arrows);},{passive:true});
+  window.addEventListener('resize',arrows); arrows();
   document.getElementById('prev').addEventListener('click',function(){step(-1);});
   document.getElementById('next').addEventListener('click',function(){step(1);});
 })();
