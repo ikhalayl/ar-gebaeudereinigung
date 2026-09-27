@@ -143,6 +143,7 @@ nav.main a:hover{color:var(--blue)}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid #d7dbe3;padding-top:24px}
 .tile{background:var(--white);border-radius:12px;padding:16px;display:flex;align-items:center;gap:16px;text-decoration:none}
 a.tile:hover{box-shadow:0 0 0 2px var(--blue)}
+.tile i.wa-ico{background:#dcfce7;color:#15803d}
 .tile i{width:50px;height:50px;border-radius:50%;background:var(--panel);display:grid;place-items:center;color:var(--ink);font-size:1.3rem;flex:none}
 .tile small{display:block;color:var(--muted);font-size:.85rem}
 .tile b{display:block;color:var(--ink);font-size:1.02rem;word-break:break-word}
@@ -416,7 +417,7 @@ main:has(.legal:target) > :not(.legal){display:none}
         <label class="full">Ihre Nachricht<textarea id="text" placeholder="Objekt, Größe, gewünschte Häufigkeit oder Wunschtermin"></textarea></label>
       </div>
       <div class="send">
-        <a class="btn wa" id="sendwa" href="https://wa.me/4915730719711" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp senden</a>
+        <a class="btn wa" id="sendwa" href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp senden</a>
         <a class="btn light" id="sendmail" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>E-Mail senden</a>
       </div>
       <p id="msg" role="status" aria-live="polite"></p>
@@ -472,10 +473,10 @@ main:has(.legal:target) > :not(.legal){display:none}
         <a class="btn" href="#anfrage">Jetzt Angebot anfragen <svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="tiles">
-        <a class="tile" href="tel:+4915730719711"><i><svg class="ico"><use href="#i-phone"/></svg></i><span><small>Telefon und WhatsApp</small><b>01573&nbsp;0719711</b></span></a>
+        <a class="tile" href="tel:+4915730719711"><i><svg class="ico"><use href="#i-phone"/></svg></i><span><small>Anrufen · 8 bis 16 Uhr</small><b>01573&nbsp;0719711</b></span></a>
+        <a class="tile" href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer"><i class="wa-ico"><svg class="ico"><use href="#i-wa"/></svg></i><span><small>WhatsApp</small><b>Nachricht schreiben</b></span></a>
         <a class="tile" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><i><svg class="ico"><use href="#i-mail"/></svg></i><span><small>E-Mail</small><b>info@ar-gebaeudereinigung-reutlingen.de</b></span></a>
-        <div class="tile"><i><svg class="ico"><use href="#i-clock"/></svg></i><span><small>Erreichbar</small><b>8:00 bis 16:00 Uhr</b></span></div>
-        <a class="tile" href="https://www.google.com/maps/search/?api=1&amp;query=Metzgerstra%C3%9Fe+21%2C+72764+Reutlingen" rel="noopener"><i><svg class="ico"><use href="#i-pin"/></svg></i><span><small>Adresse</small><b>Metzgerstraße 21, 72764 Reutlingen</b></span></a>
+        <a class="tile" href="https://www.google.com/maps/search/?api=1&amp;query=Metzgerstra%C3%9Fe+21%2C+72764+Reutlingen" target="_blank" rel="noopener noreferrer"><i><svg class="ico"><use href="#i-pin"/></svg></i><span><small>Adresse</small><b>Metzgerstraße 21, 72764 Reutlingen</b></span></a>
       </div>
     </div>
   </section>
@@ -542,9 +543,10 @@ main:has(.legal:target) > :not(.legal){display:none}
       <a class="btn light" href="#anfrage">Angebot anfragen <svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="cta-list">
-      <a href="tel:+4915730719711"><svg class="ico"><use href="#i-phone"/></svg>01573&nbsp;0719711</a>
+      <a href="tel:+4915730719711"><svg class="ico"><use href="#i-phone"/></svg>Anrufen: 01573&nbsp;0719711</a>
+      <a href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp schreiben</a>
       <a href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>info@ar-gebaeudereinigung-reutlingen.de</a>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Metzgerstra%C3%9Fe+21%2C+72764+Reutlingen" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg>Metzgerstraße 21, 72764 Reutlingen</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Metzgerstra%C3%9Fe+21%2C+72764+Reutlingen" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-pin"/></svg>Metzgerstraße 21, 72764 Reutlingen</a>
       <span><svg class="ico"><use href="#i-clock"/></svg>8:00 bis 16:00 Uhr</span>
     </div>
   </section>
@@ -613,7 +615,8 @@ main:has(.legal:target) > :not(.legal){display:none}
         <h2 class="fh">Kontakt</h2>
         <ul>
           <li>Metzgerstraße 21<br>72764 Reutlingen</li>
-          <li><a href="tel:+4915730719711">01573&nbsp;0719711</a></li>
+          <li><a href="tel:+4915730719711">Anrufen: 01573&nbsp;0719711</a></li>
+          <li><a href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer">WhatsApp schreiben</a></li>
           <li><a href="mailto:info@ar-gebaeudereinigung-reutlingen.de">E-Mail schreiben</a></li>
           <li>8:00 bis 16:00 Uhr</li>
         </ul>
@@ -633,12 +636,12 @@ main:has(.legal:target) > :not(.legal){display:none}
   </div>
 </footer>
 
-<aside aria-label="WhatsApp"><a class="wa-float" href="https://wa.me/4915730719711" rel="noopener" aria-label="Per WhatsApp schreiben" title="Per WhatsApp schreiben"><svg><use href="#i-wa"/></svg></a></aside>
+<aside aria-label="WhatsApp"><a class="wa-float" href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp schreiben" title="Per WhatsApp schreiben"><svg><use href="#i-wa"/></svg></a></aside>
 
 <nav class="mbar" aria-label="Schnellkontakt">
   <a href="tel:+4915730719711"><svg><use href="#i-phone"/></svg>Anrufen</a>
   <a href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg><use href="#i-mail"/></svg>E-Mail</a>
-  <a class="wa-i" href="https://wa.me/4915730719711" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="wa-i" href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer"><svg><use href="#i-wa"/></svg>WhatsApp</a>
   <a href="#anfrage"><svg><use href="#i-form"/></svg>Anfrage</a>
 </nav>
 
@@ -672,6 +675,14 @@ main:has(.legal:target) > :not(.legal){display:none}
   wa.addEventListener('click',check);
   ml.addEventListener('click',check);
   update();
+
+  // "Angebot anfragen": zum Formular und Cursor ins Namensfeld
+  var nameEl=document.getElementById('name');
+  function focusName(){setTimeout(function(){try{nameEl.focus({preventScroll:true});}catch(x){nameEl.focus();}},650);}
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href="#anfrage"]');if(!a)return;
+    if(location.hash==='#anfrage'){e.preventDefault();document.getElementById('anfrage').scrollIntoView({behavior:'smooth',block:'start'});}
+    focusName();});
+  if(location.hash==='#anfrage')focusName();
 
   // Menü
   var hdr=document.getElementById('hdr'), bt=document.getElementById('burger');
