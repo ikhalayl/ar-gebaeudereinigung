@@ -102,7 +102,11 @@ nav.main a:hover{color:var(--blue)}
 .send{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
 .send .btn{white-space:nowrap;padding-inline:.8rem}
 .hint{font-size:.82rem;color:#93a2c2}
-#msg{font-weight:600;color:#ffd166;min-height:1.2em}
+#msg{font-weight:600;color:#ffd166;min-height:1.2em;margin:0}
+#msg.ok{color:#86efac}
+.form-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.clear{background:none;border:0;color:#aebbd4;font:500 .9rem var(--font);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:10px 0;min-height:44px}
+.clear:hover{color:#fff}
 
 /* Allgemeine Sektionen */
 .sec{padding-block:72px}
@@ -402,7 +406,7 @@ main:has(.legal:target) > :not(.legal){display:none}
       </div>
     </div>
 
-    <form class="formcard" id="anfrage" novalidate aria-labelledby="f-h">
+    <form class="formcard" id="anfrage" novalidate autocomplete="off" aria-labelledby="f-h">
       <h2 id="f-h">Angebot und Termin anfragen</h2>
       <p class="sub">Unverbindlich. Wir melden uns mit einem Angebot bei Ihnen.</p>
       <div class="fgrid">
@@ -420,7 +424,7 @@ main:has(.legal:target) > :not(.legal){display:none}
         <a class="btn wa" id="sendwa" href="https://wa.me/4915730719711" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp senden</a>
         <a class="btn light" id="sendmail" href="mailto:info@ar-gebaeudereinigung-reutlingen.de"><svg class="ico"><use href="#i-mail"/></svg>E-Mail senden</a>
       </div>
-      <p id="msg" role="status" aria-live="polite"></p>
+      <div class="form-foot"><p id="msg" role="status" aria-live="polite"></p><button type="button" class="clear" id="clear">Eingaben löschen</button></div>
       <p class="hint">Ihre Angaben werden in eine Nachricht übernommen. Abgeschickt wird sie erst in WhatsApp oder in Ihrem E-Mail-Programm. Hinweise im <a href="#datenschutz">Datenschutz</a>.</p>
     </form>
   </section>
@@ -669,9 +673,15 @@ main:has(.legal:target) > :not(.legal){display:none}
       return;
     }
     m.textContent=''; update();
+    // Nach dem Öffnen von WhatsApp bzw. E-Mail: Formular automatisch leeren
+    setTimeout(function(){clearForm(); m.className='ok'; m.textContent='Ihre Nachricht wurde vorbereitet. Das Formular wurde geleert.';},400);
   }
+  function clearForm(){f.reset(); m.textContent=''; m.className=''; update();}
+  document.getElementById('clear').addEventListener('click',function(){clearForm(); document.getElementById('name').focus();});
+  // Beim Neuladen oder Zurückkehren keine alten Eingaben anzeigen
+  window.addEventListener('pageshow',function(){clearForm();});
   f.addEventListener('submit',function(e){e.preventDefault();});
-  f.addEventListener('input',function(){update(); if(v('name')) m.textContent='';});
+  f.addEventListener('input',function(){update(); if(v('name')){m.textContent='';m.className='';}});
   wa.addEventListener('click',check);
   ml.addEventListener('click',check);
   update();
